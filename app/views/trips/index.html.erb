@@ -1,0 +1,8 @@
+<h1>This is Trpis#index</h1>
+<% @trips.each do |trip| %>
+    <%= trip.id %>
+    <%= trip.address%>
+    <%= trip.geocode %>
+<% end %>
+<%= @trips.find(5).distance_to(@trips.find(6),:km) %>
+

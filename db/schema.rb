@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_103814) do
+ActiveRecord::Schema.define(version: 2021_11_18_155148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_destinations_on_activity_id"
+  end
+
+  create_table "starts", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_starts_on_activity_id"
+  end
 
   create_table "trips", force: :cascade do |t|
     t.string "street"
@@ -25,4 +50,6 @@ ActiveRecord::Schema.define(version: 2021_11_18_103814) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "destinations", "activities"
+  add_foreign_key "starts", "activities"
 end

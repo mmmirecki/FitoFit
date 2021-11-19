@@ -1,0 +1,8 @@
+<h1>Activities#index</h1>
+<%= @activities.each do |act| %>
+    <%= act.inspect %>
+    <%= act.start.geocode %>
+    <%= act.destination.geocode %>
+    <%= act.start.distance_to(act.destination) %> km
+    <br/><br/>
+<%end %>

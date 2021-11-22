@@ -10,9 +10,25 @@ html,body{
     height: 100%;
 }
 
+@mixin basic-button{
+    border: 1px solid black;
+            background-color: sandybrown;
+            color: black;
+            padding: 3px;
+            text-decoration: none;
+            &:hover{
+                background-color: slategray;
+                color: red;
+            }
+}
+
 .new-activity-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     .title-container{
-        margin: 20px;
+      
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -23,7 +39,7 @@ html,body{
         }
     }
     .activity-form{
-        margin: auto;
+        
         padding: 10px;
         height: 200px;
         width: 300px;
@@ -39,6 +55,9 @@ html,body{
             flex-direction: column;
         }
     }
+    .show-activities{
+        @include basic-button;
+    }
 }
 
 .stats-container{
@@ -52,6 +71,9 @@ html,body{
     .weekly-trips-container{
         margin: 20px;
         flex-grow: 1;
+        .new-activity{
+            @include basic-button;
+        }
     }
 }
 

@@ -1,10 +1,26 @@
-<section>
+<section class="new-activity-content-wrapper">
+<div class="title-container">
+<h1>Please specify start and destination in specified format</h1>
+<h3>/Street [house/apartment], City, Country/</h3>
+</div>
 <%= form_with model: @activity do |f| %>
-    <%= f.label :start%>
-    <%= f.text_field :start %>
-    <%= f.label :destination%>
-    <%= f.text_field :destination %>
-    <%= f.submit %>
+    
+    <section class="activity-form">
+        <div class='alert'>
+            <%= alert %>
+        </div>
+        <div class="form-field">
+        <%= f.label :start%>
+        <%= f.text_field :start %>
+        </div>
+        <div class="form-field">
+        <%= f.label :destination%>
+        <%= f.text_field :destination %>
+        </div>
+        <div class="submit">
+        <%= f.submit %>
+        </div>
+    </section>
 <% end %>
 
 </section>

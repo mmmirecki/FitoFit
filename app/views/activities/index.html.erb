@@ -1,8 +1,22 @@
-<h1>Activities#index</h1>
-<%= @activities.each do |act| %>
-    <%= act.inspect %>
-    <%= act.start.geocode %>
-    <%= act.destination.geocode %>
-    <%= act.start.distance_to(act.destination) %> km
-    <br/><br/>
-<%end %>
+<section class='stats-container'>
+    <section class='monthly-trips-container'>
+        <h1>Last month trips</h1>
+        <% @activities.each do |act| %>
+            <p>
+                <h3>From:</h3><%= act.start[:address] %>
+            </p>
+            <p>
+                <h3>To:</h3><%= act.destination[:address] %>
+            </p>
+            <p>
+                <h3>Distance:</h3><%= act[:distance] %> km
+            </p>
+            
+            <br/><br/>
+        <%end %>
+    </section>
+    <section class='weekly-trips-container'>
+        <h1>Last week you traveled: </h1><%= @last_week_activities %>
+        
+    </section>
+</section>

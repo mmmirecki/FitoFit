@@ -1,3 +1,61 @@
 // Place all the styles related to the Activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+.new-activity-content-wrapper{
+    .title-container{
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3{
+            text-align: center;
+            padding: 5px;
+        }
+    }
+    .activity-form{
+        margin: auto;
+        padding: 10px;
+        height: 200px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        justify-content: space-between;
+        .form-field{
+            border: 1px dotted red;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.stats-container{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    .monthly-trips-container{
+        margin: 20px;
+        flex-grow: 1;
+    }
+    .weekly-trips-container{
+        margin: 20px;
+        flex-grow: 1;
+    }
+}
+
+.alert{
+    color:red;
+    text-decoration: underline;
+}
